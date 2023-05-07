@@ -1,6 +1,6 @@
 import initAnimacaoScroll from "./modules/animacao-scroll.js";
 import ScrollSuave from "./modules/scroll-suave.js";
-import initTabNav from "./modules/tab-nav.js";
+import TabNav from "./modules/tab-nav.js";
 import Accordion from "./modules/init-accordion.js";
 import initForm from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
@@ -12,15 +12,19 @@ import initBitcoin from "./modules/fetch-bitcoin.js";
 
 const initScroll = new ScrollSuave('.menu a[href^="#"]');
 initScroll.addLinkEvent();
-console.log(initScroll);
 
 const initAccordion = new Accordion(".faq-lista > dt");
 initAccordion.init();
 
+const initTabNav = new TabNav(
+  "[data-tab='menu'] li",
+  "[data-tab='content'] div"
+);
+initTabNav.init();
+
 initAnimacaoScroll();
 initDropDown();
 initMenu();
-initTabNav();
 initBitcoin();
 initAnimaNumero();
 initTooltip();
