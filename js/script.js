@@ -1,5 +1,5 @@
 import initAnimacaoScroll from "./modules/animacao-scroll.js";
-import scrollSuave from "./modules/scroll-suave.js";
+import ScrollSuave from "./modules/scroll-suave.js";
 import initTabNav from "./modules/tab-nav.js";
 import initAccordion from "./modules/init-accordion.js";
 import initForm from "./modules/modal.js";
@@ -15,7 +15,10 @@ initDropDown();
 initMenu();
 initTabNav();
 initAccordion();
-scrollSuave();
+const initScroll = new ScrollSuave('.menu a[href^="#"]');
+initScroll.addLinkEvent();
+console.log(initScroll);
+
 initBitcoin();
 initAnimaNumero();
 initTooltip();
