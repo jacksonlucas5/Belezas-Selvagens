@@ -1,0 +1,61 @@
+[data-button="mobile"] {
+  background-color: #111;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px 16px;
+  display: none;
+  border: none;
+  align-items: center;
+  margin: 20px 0px 10px 10px;
+  cursor: pointer;
+  z-index: 300;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  position: relative;
+}
+
+[data-button="mobile"]::before {
+  content: "";
+  height: 2px;
+  width: 12px;
+  display: inline-block;
+  background-color: #fff;
+  margin-right: 5px;
+  box-shadow: 0 4px 0 #fff, 0 -4px 0 #fff;
+  transition: transform 0.3s;
+}
+
+@media (max-width: 600px) {
+  [data-button="mobile"] {
+    display: flex;
+  }
+
+  [data-button="mobile"].remove::before {
+    transform: rotate(90deg);
+  }
+
+  .menu {
+    z-index: 200;
+  }
+
+  .menu > ul {
+    display: none;
+  }
+
+  .menu > ul.remove {
+    display: block;
+    padding: 80px 0px 20px 0px;
+    display: block;
+    width: 160px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    background-color: #fb5;
+    animation: show-rigth 0.3s forwards;
+  }
+
+  .dropdown-menu {
+    position: static;
+    border: none;
+  }
+}

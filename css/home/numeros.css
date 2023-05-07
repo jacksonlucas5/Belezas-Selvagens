@@ -1,0 +1,25 @@
+.numeros-grid {
+  display: grid;
+  grid-column: 2/4;
+  padding-left: 10px;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.numeros-grid h3 {
+  font-size: 2.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  color: #222;
+}
+
+.numeros-grid span {
+  font-size: 1.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  color: chocolate;
+}
+@media (max-width: 780px) {
+  .numeros-grid {
+    grid-column: 1/-1;
+  }
+}
