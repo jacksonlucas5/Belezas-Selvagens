@@ -16,5 +16,4 @@ export default function initTabNav() {
         activeTab(index);
       });
     });
-  
 }
