@@ -11,7 +11,7 @@ import initFuncionamento from "./modules/funcionamento.js";
 import initBitcoin from "./modules/fetch-bitcoin.js";
 
 const initScroll = new ScrollSuave('.menu a[href^="#"]');
-initScroll.addLinkEvent();
+initScroll.init();
 
 const initAccordion = new Accordion(".faq-lista > dt");
 initAccordion.init();

@@ -27,5 +27,6 @@ export default class TabNav {
     if (this.menu.length && this.content.length) {
       this.eventMenu();
     }
+    return this;
   }
 }

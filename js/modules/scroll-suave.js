@@ -30,4 +30,9 @@ export default class ScrollSuave {
       item.addEventListener("click", this.scrollToSection);
     });
   }
+
+  init() {
+    this.addLinkEvent();
+    return this;
+  }
 }
