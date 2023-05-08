@@ -2,7 +2,7 @@ import initAnimacaoScroll from "./modules/animacao-scroll.js";
 import ScrollSuave from "./modules/scroll-suave.js";
 import TabNav from "./modules/tab-nav.js";
 import Accordion from "./modules/init-accordion.js";
-import initForm from "./modules/modal.js";
+import Modal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
 import initDropDown from "./modules/menu-dropdown.js";
 import initMenu from "./modules/menu-mobile.js";
@@ -22,11 +22,17 @@ const initTabNav = new TabNav(
 );
 initTabNav.init();
 
+const initModal = new Modal(
+  '[data-form="remove"]',
+  "[data-modal='abrir']",
+  '[data-form="modal"]'
+);
+initModal.init();
+
 initAnimacaoScroll();
 initDropDown();
 initMenu();
 initBitcoin();
 initAnimaNumero();
 initTooltip();
-initForm();
 initFuncionamento();
