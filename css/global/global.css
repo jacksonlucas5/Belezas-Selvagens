@@ -33,3 +33,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body.ativo {
+  background-color: #d0d0d0; 
+}
+

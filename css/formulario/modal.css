@@ -17,7 +17,7 @@
 .modal {
   padding: 40px;
   border: 10px solid rgb(255, 187, 0);
-  box-shadow: 0px 0px 0px 10px #ffdce5;
+  box-shadow: 0px 0px 0px 10px #fdfdfd;
   position: relative;
   min-width: 400px;
 }

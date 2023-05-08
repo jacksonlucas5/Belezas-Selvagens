@@ -1,25 +1,36 @@
-export default function initForm() {
-  const btnRemove = document.querySelector('[data-form="remove"]');
-  const loginLink = document.querySelector("[data-modal='abrir']");
-  const modal = document.querySelector('[data-form="modal"]');
-
-  // Função responsável por remover o modal
-  function handleRemoveBtnClick(event) {
-    event.preventDefault();
-    modal.classList.toggle("remove");
+export default class Modal {
+  constructor(btnRemove, loginLink, modal) {
+    this.btnRemove = document.querySelector(btnRemove);
+    this.loginLink = document.querySelector(loginLink);
+    this.modal = document.querySelector(modal);
+    this.handleRemoveBtnClick = this.handleRemoveBtnClick.bind(this);
+    this.handleWindowClick = this.handleWindowClick.bind(this);
   }
 
-  // Verifica se o alvo do clique é o modal ou algum de seus filhos
-  function handleWindowClick(event) {
-    if (event.target === this) {
-      handleRemoveBtnClick(event);
+  // Função responsável por remover o modal
+  handleRemoveBtnClick(event) {
+    event.preventDefault();
+    this.modal.classList.toggle("remove");
+    if (!this.modal.classList.contains("remove")) {
+      document.body.classList.add("ativo");
+    } else {
+      document.body.classList.remove("ativo");
     }
   }
 
-  if (btnRemove && loginLink && modal) {
-    // Adiciona os event listeners aos elementos do DOM
-    loginLink.addEventListener("click", handleRemoveBtnClick);
-    btnRemove.addEventListener("click", handleRemoveBtnClick);
-    modal.addEventListener("click", handleWindowClick);
+  // Verifica se o alvo do clique é o modal ou algum de seus filhos
+  handleWindowClick(event) {
+    if (event.target === this.modal) {
+      this.handleRemoveBtnClick(event);
+    }
+  }
+
+  init() {
+    if (this.btnRemove && this.loginLink && this.modal) {
+      // Adiciona os event listeners aos elementos do DOM
+      this.loginLink.addEventListener("click", this.handleRemoveBtnClick);
+      this.btnRemove.addEventListener("click", this.handleRemoveBtnClick);
+      this.modal.addEventListener("click", this.handleWindowClick);
+    }
   }
 }
