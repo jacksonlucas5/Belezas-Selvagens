@@ -32,5 +32,6 @@ export default class Modal {
       this.btnRemove.addEventListener("click", this.handleRemoveBtnClick);
       this.modal.addEventListener("click", this.handleWindowClick);
     }
+    return this;
   }
 }

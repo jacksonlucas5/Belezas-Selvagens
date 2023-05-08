@@ -10,7 +10,7 @@ export default function initMenu() {
   btnMenu.addEventListener("touchstart", toggleMenu, { passive: true });
   btnMenu.addEventListener("click", toggleMenu);
 
-  document.addEventListener("click",  (event) => {
+  document.addEventListener("click", (event) => {
     if (!btnMenu.contains(event.target) && !menuMobile.contains(event.target)) {
       if (menuMobile.classList.contains("remove")) {
         toggleMenu();

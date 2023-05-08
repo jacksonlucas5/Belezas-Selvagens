@@ -27,5 +27,6 @@ export default class Accordion {
     if (this.element.length) {
       this.eventAccordion();
     }
+    return this;
   }
 }
