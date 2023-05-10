@@ -8,7 +8,7 @@ import initDropDown from "./modules/menu-dropdown.js";
 import initMenu from "./modules/menu-mobile.js";
 import AnimaNumero from "./modules/animacao-numeros.js";
 import initFuncionamento from "./modules/funcionamento.js";
-import initBitcoin from "./modules/fetch-bitcoin.js";
+import Bitcoin from "./modules/fetch-bitcoin.js";
 
 const initScroll = new ScrollSuave('.menu a[href^="#"]');
 initScroll.init();
@@ -35,9 +35,11 @@ initToolTip.init();
 const initAnimaNumero = new AnimaNumero("[data-numeros]", ".numeros");
 initAnimaNumero.init();
 
+const initBitcoin = new Bitcoin("[data-bitcoin]");
+initBitcoin.init();
+
 initAnimacaoScroll();
 initDropDown();
 initMenu();
-initBitcoin();
 
 initFuncionamento();

@@ -1,15 +1,21 @@
-export default function initBitcoin() {
-  const bitcoin = document.querySelector("[data-bitcoin]");
+export default class Bitcoin {
+  constructor(bitcoin) {
+    this.bitcoin = document.querySelector(bitcoin);
+  }
 
-  async function initFetch(url) {
+  async initFetch(url) {
     try {
       const responseBlockchain = await fetch(url);
       const blockchainJSON = await responseBlockchain.json();
 
-      bitcoin.innerText = (1000 / blockchainJSON.BRL.buy).toFixed(4);
+      this.bitcoin.innerText = (1000 / blockchainJSON.BRL.buy).toFixed(4);
     } catch (erro) {
       console.log(Error(erro));
     }
   }
-  initFetch("https://blockchain.info/ticker");
+
+  init() {
+    this.initFetch("https://blockchain.info/ticker");
+    return this;
+  }
 }
