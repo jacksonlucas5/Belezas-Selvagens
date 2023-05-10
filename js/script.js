@@ -6,7 +6,7 @@ import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import initDropDown from "./modules/menu-dropdown.js";
 import initMenu from "./modules/menu-mobile.js";
-import initAnimaNumero from "./modules/animacao-numeros.js";
+import AnimaNumero from "./modules/animacao-numeros.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import initBitcoin from "./modules/fetch-bitcoin.js";
 
@@ -32,10 +32,12 @@ initModal.init();
 const initToolTip = new Tooltip("[data-tooltip]");
 initToolTip.init();
 
+const initAnimaNumero = new AnimaNumero("[data-numeros]", ".numeros");
+initAnimaNumero.init();
+
 initAnimacaoScroll();
 initDropDown();
 initMenu();
 initBitcoin();
-initAnimaNumero();
 
 initFuncionamento();
