@@ -31,10 +31,10 @@ export default class AnimaNumero {
       if (!this.container.classList.contains("ativo")) {
         this.container.classList.add("ativo");
         this.initAnimation();
+      } else if (this.container.classList.contains("ativo")) {
+        this.container.classList.remove("ativo");
+        window.removeEventListener("scroll", this.scrollHandler);
       }
-    } else if (this.container.classList.contains("ativo")) {
-      this.container.classList.remove("ativo");
-      window.removeEventListener("scroll", this.scrollHandler);
     }
   }
 

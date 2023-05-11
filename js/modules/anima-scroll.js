@@ -1,7 +1,7 @@
 export default class AnimaScroll {
   constructor(items) {
     this.items = document.querySelectorAll(items);
-    this.observer = null;
+    this.observer = null;console.log('ola')
   }
 
   handleIntersection(entries) {
