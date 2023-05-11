@@ -1,4 +1,4 @@
-import initAnimacaoScroll from "./modules/animacao-scroll.js";
+import AnimaScroll from "./modules/anima-scroll.js";
 import ScrollSuave from "./modules/scroll-suave.js";
 import TabNav from "./modules/tab-nav.js";
 import Accordion from "./modules/init-accordion.js";
@@ -32,13 +32,15 @@ initModal.init();
 const initToolTip = new Tooltip("[data-tooltip]");
 initToolTip.init();
 
-const initAnimaNumero = new AnimaNumero("[data-numeros]", ".numeros");
-initAnimaNumero.init();
+const initAnimaNumero = new AnimaNumero("[data-numeros]", ".numeros-grid");
+initAnimaNumero.init(); 
 
 const initBitcoin = new Bitcoin("[data-bitcoin]");
 initBitcoin.init();
 
-initAnimacaoScroll();
+const initAnimaScroll = new AnimaScroll("[data-scroll='anime']");
+initAnimaScroll.init();
+
 initDropDown();
 initMenu();
 
