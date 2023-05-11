@@ -1,13 +1,26 @@
-export default function initFuncionamento() {
-  const diasAbertos = document.querySelector("[data-aberto='dia']");
-  const dayOfWeek = new Date().getDay(); // retorna o dia da semana como um número (0-6)
+export default class Funcionamento {
+  constructor(diasAbertos) {
+    this.diasAbertos = document.querySelector(diasAbertos);
+    this.dayOfWeek = new Date().getDay(); // retorna o dia da semana como um número (0-6)
+  }
 
-  const horarioAberto =
-    dayOfWeek >= 1 &&
-    dayOfWeek <= 5 &&
-    new Date().getHours() >= 8 &&
-    new Date().getHours() < 18;
+  init() {
+    const horarioAberto = Funcionamento.isHorarioAberto();
 
-  diasAbertos.classList.toggle("aberto", horarioAberto);
-  diasAbertos.classList.toggle("fechado", !horarioAberto);
+    this.diasAbertos.classList.toggle("aberto", horarioAberto);
+    this.diasAbertos.classList.toggle("fechado", !horarioAberto);
+  }
+
+  static isHorarioAberto() {
+    const horarioInicio = 8; // 8:00
+    const horarioFim = 18; // 18:00
+    const dayOfWeek = new Date().getDay();
+
+    if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+      const currentHour = new Date().getHours();
+      return currentHour >= horarioInicio && currentHour < horarioFim;
+    }
+
+    return false;
+  }
 }

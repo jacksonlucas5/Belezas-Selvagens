@@ -4,8 +4,8 @@ export default class Accordion {
     this.accordionClass = "ativo";
 
     // ativar o primeiro item
-    this.element[2].classList.add(this.accordionClass);
-    this.element[2].nextElementSibling.classList.add(this.accordionClass);
+    this.element[0].classList.add(this.accordionClass);
+    this.element[0].nextElementSibling.classList.add(this.accordionClass);
   }
 
   toggleAccordion(event) {

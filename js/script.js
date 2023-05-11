@@ -5,10 +5,10 @@ import Accordion from "./modules/init-accordion.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import DropDownMenu from "./modules/menu-dropdown.js";
-import initMenu from "./modules/menu-mobile.js";
+import MenuMobile from "./modules/menu-mobile.js";
 import AnimaNumero from "./modules/animacao-numeros.js";
-import initFuncionamento from "./modules/funcionamento.js";
 import Bitcoin from "./modules/fetch-bitcoin.js";
+import Funcionamento from "./modules/funcionamento.js";
 
 const initScroll = new ScrollSuave('.menu a[href^="#"]');
 initScroll.init();
@@ -47,5 +47,11 @@ const initDropDownMenu = new DropDownMenu(
 );
 initDropDownMenu.init();
 
-initMenu();
-initFuncionamento();
+const initMenuMobile = new MenuMobile(
+  '[data-menu="mobile"]',
+  '[data-button="mobile"]'
+);
+initMenuMobile.init();
+
+const initFuncionamento = new Funcionamento("[data-aberto='dia']");
+initFuncionamento.init();
