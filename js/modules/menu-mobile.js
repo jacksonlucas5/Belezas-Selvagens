@@ -1,20 +1,39 @@
-export default function initMenu() {
-  const menuMobile = document.querySelector('[data-menu="mobile"]');
-  const btnMenu = document.querySelector('[data-button="mobile"]');
-
-  function toggleMenu() {
-    btnMenu.classList.toggle("remove");
-    menuMobile.classList.toggle("remove");
+export default class MenuMobile {
+  constructor(menuMobile, btnMenu) {
+    this.menuMobile = document.querySelector(menuMobile);
+    this.btnMenu = document.querySelector(btnMenu);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
-  btnMenu.addEventListener("touchstart", toggleMenu, { passive: true });
-  btnMenu.addEventListener("click", toggleMenu);
+  toggleMenu() {
+    this.btnMenu.classList.toggle("remove");
+    this.menuMobile.classList.toggle("remove");
+  }
 
-  document.addEventListener("click", (event) => {
-    if (!btnMenu.contains(event.target) && !menuMobile.contains(event.target)) {
-      if (menuMobile.classList.contains("remove")) {
-        toggleMenu();
+  eventMenuMobile() {
+    this.btnMenu.addEventListener("touchstart", this.toggleMenu, {
+      passive: true,
+    });
+    this.btnMenu.addEventListener("click", this.toggleMenu);
+  }
+
+  clickForaDoMenu() {
+    document.addEventListener("click", (event) => {
+      if (
+        !this.btnMenu.contains(event.target) &&
+        !this.menuMobile.contains(event.target)
+      ) {
+        if (this.menuMobile.classList.contains("remove")) {
+          this.toggleMenu();
+        }
       }
+    });
+  }
+
+  init() {
+    if (this.btnMenu && this.menuMobile) {
+      this.eventMenuMobile();
+      this.clickForaDoMenu();
     }
-  });
+  }
 }
