@@ -35,7 +35,9 @@ export default class DropDownMenu {
   }
 
   init() {
-    this.eventosDropDownMenu();
-    this.clickForaDoMenu();
+    if ((this.btnMenu, this.dropDownMenu)) {
+      this.eventosDropDownMenu();
+      this.clickForaDoMenu();
+    }
   }
 }
