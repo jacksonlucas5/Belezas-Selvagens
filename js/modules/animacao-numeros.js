@@ -4,7 +4,7 @@ export default class AnimaNumero {
   constructor(numeros, observar) {
     this.numeros = document.querySelectorAll(numeros);
     this.container = document.querySelector(observar);
-    this.containerObservado = debounce(this.containerObservado.bind(this), 200);
+    this.containerObservado = debounce(this.containerObservado.bind(this), 120);
     this.scrollListener = this.scrollListener.bind(this);
   }
 
@@ -25,7 +25,6 @@ export default class AnimaNumero {
   }
 
   containerObservado() {
-    console.log(this.observar);
     const sectionTop = this.container.getBoundingClientRect().top;
     const windowMetade = window.innerHeight * 0.8;
     const isSectionVisible = sectionTop - windowMetade < 0;
