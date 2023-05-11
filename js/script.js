@@ -4,7 +4,7 @@ import TabNav from "./modules/tab-nav.js";
 import Accordion from "./modules/init-accordion.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
-import initDropDown from "./modules/menu-dropdown.js";
+import DropDownMenu from "./modules/menu-dropdown.js";
 import initMenu from "./modules/menu-mobile.js";
 import AnimaNumero from "./modules/animacao-numeros.js";
 import initFuncionamento from "./modules/funcionamento.js";
@@ -33,7 +33,7 @@ const initToolTip = new Tooltip("[data-tooltip]");
 initToolTip.init();
 
 const initAnimaNumero = new AnimaNumero("[data-numeros]", ".numeros-grid");
-initAnimaNumero.init(); 
+initAnimaNumero.init();
 
 const initBitcoin = new Bitcoin("[data-bitcoin]");
 initBitcoin.init();
@@ -41,6 +41,11 @@ initBitcoin.init();
 const initAnimaScroll = new AnimaScroll("[data-scroll='anime']");
 initAnimaScroll.init();
 
-initDropDown();
+const initDropDownMenu = new DropDownMenu(
+  '[data-menu="abrir"]',
+  '[data-dropdown="menu"]'
+);
+initDropDownMenu.init();
+
 initMenu();
 initFuncionamento();

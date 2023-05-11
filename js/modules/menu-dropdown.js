@@ -1,26 +1,41 @@
-export default function initDropDown() {
-  const btnMenu = document.querySelector('[data-menu="abrir"]');
-  const dropDownMenu = document.querySelector('[data-dropdown="menu"]');
-  function toggleMenu(event) {
+export default class DropDownMenu {
+  constructor(btnMenu, dropDownMenu) {
+    this.btnMenu = document.querySelector(btnMenu);
+    this.dropDownMenu = document.querySelector(dropDownMenu);
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  toggleMenu(event) {
     if (event !== undefined) {
       event.preventDefault();
     }
-    dropDownMenu.classList.toggle("active");
+    this.dropDownMenu.classList.toggle("active");
   }
 
-  btnMenu.addEventListener("click", toggleMenu);
-  btnMenu.addEventListener("touchstart", toggleMenu, { passive: true });
-  btnMenu.addEventListener("mouseover", toggleMenu);
-  dropDownMenu.addEventListener("mouseleave", toggleMenu);
+  eventosDropDownMenu() {
+    this.btnMenu.addEventListener("click", this.toggleMenu);
+    this.btnMenu.addEventListener("touchstart", this.toggleMenu, {
+      passive: true,
+    });
+    this.btnMenu.addEventListener("mouseover", this.toggleMenu);
+    this.dropDownMenu.addEventListener("mouseleave", this.toggleMenu);
+  }
 
-  document.addEventListener("click", (event) => {
-    if (
-      !btnMenu.contains(event.target) &&
-      !dropDownMenu.contains(event.target)
-    ) {
-      if (!dropDownMenu.classList.contains("active")) {
-        toggleMenu();
+  clickForaDoMenu() {
+    document.addEventListener("click", (event) => {
+      if (
+        !this.btnMenu.contains(event.target) &&
+        !this.dropDownMenu.contains(event.target)
+      ) {
+        if (!this.dropDownMenu.classList.contains("active")) {
+          this.toggleMenu();
+        }
       }
-    }
-  });
+    });
+  }
+
+  init() {
+    this.eventosDropDownMenu();
+    this.clickForaDoMenu();
+  }
 }
