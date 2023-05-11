@@ -43,5 +43,4 @@ initAnimaScroll.init();
 
 initDropDown();
 initMenu();
-
 initFuncionamento();

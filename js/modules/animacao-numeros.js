@@ -1,8 +1,10 @@
+import debounce from "./debouse.js";
+
 export default class AnimaNumero {
   constructor(numeros, observar) {
     this.numeros = document.querySelectorAll(numeros);
     this.container = document.querySelector(observar);
-    this.containerObservado = this.containerObservado.bind(this);
+    this.containerObservado = debounce(this.containerObservado.bind(this), 200);
     this.scrollListener = this.scrollListener.bind(this);
   }
 
@@ -25,7 +27,7 @@ export default class AnimaNumero {
   containerObservado() {
     console.log(this.observar);
     const sectionTop = this.container.getBoundingClientRect().top;
-    const windowMetade = window.innerHeight * 0.6;
+    const windowMetade = window.innerHeight * 0.8;
     const isSectionVisible = sectionTop - windowMetade < 0;
     if (isSectionVisible) {
       if (!this.container.classList.contains("ativo")) {
