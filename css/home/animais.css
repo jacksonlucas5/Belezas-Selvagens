@@ -44,16 +44,30 @@
   }
 }
 
-.grid-section {
+[data-scroll="anime"] {
   opacity: 0;
-  transform: translate3d(30px, 0px, 0px);
 }
 
-.grid-section.ativo {
+[data-scroll="anime"].anime {
   opacity: 1;
-  transition: 0.5s;
-  transform: translate3d(0, 0px, 0px);
+  transform: none;
+  transition: transform 0.8s, opacity 0.8s;
 }
+
+.fadeInDown {
+  transform: translate3d(0, -20px, 0);
+}
+.fadeInUp {
+  transform: translate3d(0, 20px, 0);
+}
+.fadeInRight {
+  transform: translate3d(20px, 0, 0);
+}
+.fadeInLeft {
+  transform: translate3d(-20px, 0, 0);
+}
+
+
 
 .titulo {
   font-family: "Playfair Display SC", georgia;

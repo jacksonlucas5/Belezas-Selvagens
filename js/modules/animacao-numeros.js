@@ -1,8 +1,9 @@
 export default class AnimaNumero {
   constructor(numeros, observar) {
     this.numeros = document.querySelectorAll(numeros);
-    this.observar = observar; 
-    this.handleMutation = this.handleMutation.bind(this);
+    this.container = document.querySelector(observar);
+    this.containerObservado = this.containerObservado.bind(this);
+    this.scrollListener = this.scrollListener.bind(this);
   }
 
   initAnimation() {
@@ -21,22 +22,36 @@ export default class AnimaNumero {
     });
   }
 
-  handleMutation(mutation) {
-    if (mutation[0].target.classList.contains("ativo")) {
-      this.observer.disconnect();
-      this.initAnimation();
+  containerObservado() {
+    console.log(this.observar);
+    const sectionTop = this.container.getBoundingClientRect().top;
+    const windowMetade = window.innerHeight * 0.6;
+    const isSectionVisible = sectionTop - windowMetade < 0;
+    if (isSectionVisible) {
+      if (!this.container.classList.contains("ativo")) {
+        this.container.classList.add("ativo");
+        this.initAnimation();
+      }
+    } else if (this.container.classList.contains("ativo")) {
+      this.container.classList.remove("ativo");
+      window.removeEventListener("scroll", this.scrollHandler);
     }
   }
 
-  observe() {
-    this.observer = new MutationObserver(this.handleMutation);
-    const observerTarget = document.querySelector(this.observar);
-    this.observer.observe(observerTarget, { attributes: true });
+  scrollListener() {
+    this.containerObservado();
+  }
+
+  eventContainer() {
+    this.scrollHandler = this.scrollListener; // Referencia a função do listener
+    window.addEventListener("scroll", this.scrollHandler);
+  }
+
+  stop() {
+    window.removeEventListener("scroll", this.scrollHandler);
   }
 
   init() {
-    if (this.numeros.length && this.observar.length) this.observe();
-    return this;
-    
+    this.eventContainer();
   }
 }
