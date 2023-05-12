@@ -17,11 +17,13 @@
   z-index: 800;
 }
 
-
-
 .contato .dados {
   margin-bottom: 1rem;
   font-family: Helvetica, Arial;
+}
+
+.contato .dados li {
+  font-size: 1.1rem;
 }
 
 .contato .dados li + li {
@@ -91,12 +93,13 @@
   padding: 20px;
   font-family: "IBM Plex Mono", monospace;
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 @media (max-width: 780px) {
   .grid-section,
   .copy {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     margin-bottom: 0px;
   }
 
@@ -107,5 +110,19 @@
   .contato .dados {
     margin-top: 20px;
     grid-column: 1/5;
+  }
+}
+
+@media (max-width: 500px) {
+  .copy p {
+    font-size: 1rem;
+  }
+
+  
+}
+
+@media (max-width:322px) {
+  .contato .dados li {
+    font-size: 0.9rem;
   }
 }

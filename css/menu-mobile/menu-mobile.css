@@ -42,7 +42,11 @@
     display: none;
   }
 
-  .menu > ul.remove {
+  [data-menu="mobile"] {
+    opacity: 0;
+  }
+
+  [data-menu="mobile"].remove {
     display: block;
     padding: 80px 0px 20px 0px;
     display: block;
@@ -50,6 +54,7 @@
     box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 0;
+
     background-color: #fb5;
     animation: show-rigth 0.3s forwards;
   }

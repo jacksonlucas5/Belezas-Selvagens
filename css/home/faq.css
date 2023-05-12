@@ -40,12 +40,14 @@ dt.ativo::after {
   margin-left: 10px;
   transform: rotate(-180deg);
   transition: transform 0.3s;
+  font-size: 1.1rem;
 }
 
 dt::after {
   content: "↴";
   display: inline-block;
   margin-left: 10px;
+  font-size: 1.1rem;
   transform: rotate(0deg);
   transition: transform 0.3s;
 }
@@ -67,9 +69,18 @@ dt::after {
   margin-left: 30px;
 }
 
-
 @media (max-width: 780px) {
   .faq .faq-lista {
-    grid-column: 1/5;
+    grid-column: 1/-1;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-lista > dt {
+    font-size: 0.9rem;
+  }
+
+  .faq-lista > dd {
+    font-size: 0.9rem;
   }
 }

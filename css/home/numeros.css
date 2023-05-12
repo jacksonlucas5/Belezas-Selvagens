@@ -23,3 +23,20 @@
     grid-column: 1/-1;
   }
 }
+
+@media (max-width: 500px) {
+  .numeros-grid h3 {
+    font-size: 1.8rem;
+  }.numeros-grid span {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .numeros-grid h3 {
+    font-size: 1.5rem;
+  }
+  .numeros-grid span {
+    font-size: 1.2rem;
+  }
+}

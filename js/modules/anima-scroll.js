@@ -1,13 +1,14 @@
 export default class AnimaScroll {
   constructor(items) {
     this.items = document.querySelectorAll(items);
-    this.observer = null; 
+    this.observer = null;
   }
 
   handleIntersection(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const delay = parseInt(entry.target.getAttribute("data-tempo"), 10) || 0;
+        const delay =
+          parseInt(entry.target.getAttribute("data-tempo"), 10) || 0;
         setTimeout(() => {
           entry.target.classList.add("anime");
           this.observer.unobserve(entry.target);
@@ -15,7 +16,6 @@ export default class AnimaScroll {
       }
     });
   }
-  
 
   createObserver() {
     this.observer = new IntersectionObserver(

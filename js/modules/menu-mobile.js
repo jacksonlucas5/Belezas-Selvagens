@@ -11,9 +11,7 @@ export default class MenuMobile {
   }
 
   eventMenuMobile() {
-    this.btnMenu.addEventListener("touchstart", this.toggleMenu, {
-      passive: true,
-    });
+    this.btnMenu.addEventListener("touchend", this.toggleMenu);
     this.btnMenu.addEventListener("click", this.toggleMenu);
   }
 
