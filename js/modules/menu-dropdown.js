@@ -9,14 +9,13 @@ export default class DropDownMenu {
     if (event !== undefined) {
       event.preventDefault();
     }
+
     this.dropDownMenu.classList.toggle("active");
   }
 
   eventosDropDownMenu() {
     this.btnMenu.addEventListener("click", this.toggleMenu);
-    this.btnMenu.addEventListener("touchstart", this.toggleMenu, {
-      passive: true,
-    });
+    this.btnMenu.addEventListener("touchstart", this.toggleMenu);
     this.btnMenu.addEventListener("mouseover", this.toggleMenu);
     this.dropDownMenu.addEventListener("mouseleave", this.toggleMenu);
   }

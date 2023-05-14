@@ -4,6 +4,15 @@
   gap: 40px 0px;
 }
 
+[data-modal="abrir"]::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 10px;
+  background: url("../../img/arrows-svg/arrow-black.svg") no-repeat center center;
+  padding-left: 20px;
+}
+
 .dropdown-menu.active {
   display: none;
 }
@@ -15,18 +24,18 @@
   display: block;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #FF7F50;
+  border-bottom: 10px solid #ff7f50;
 }
 
 .dropdown-menu {
   display: flex;
   flex-direction: column;
   position: absolute;
-  background-color: #FF7F50;
+  background-color: #ff7f50;
   border-radius: 4px;
   top: 58px;
   z-index: 200;
-  border: 3px solid black; 
+  border: 3px solid black;
   animation: dropdown-menu 0.5s forwards;
 }
 
@@ -104,7 +113,7 @@
   .animais .imagens-animais {
     grid-column: 1;
   }
- 
+
   .especificacao-animais {
     grid-column: 2/5;
   }
@@ -130,7 +139,7 @@
   }
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .dropdown-menu.active {
     display: block;
   }
