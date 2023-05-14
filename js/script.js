@@ -9,6 +9,7 @@ import MenuMobile from "./modules/menu-mobile.js";
 import AnimaNumero from "./modules/animacao-numeros.js";
 import Bitcoin from "./modules/fetch-bitcoin.js";
 import Funcionamento from "./modules/funcionamento.js";
+import SlideNav from "./modules/slide.js";
 
 const initScroll = new ScrollSuave('.menu a[href^="#"]');
 initScroll.init();
@@ -55,3 +56,7 @@ initMenuMobile.init();
 
 const initFuncionamento = new Funcionamento("[data-aberto='dia']");
 initFuncionamento.init();
+
+const slide = new SlideNav(".slide", ".slide-wrapper");
+slide.init(); 
+slide.addControl(".custom-controls");
