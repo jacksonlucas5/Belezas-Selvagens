@@ -19,8 +19,9 @@
   border: 10px solid rgb(255, 187, 0);
   box-shadow: 0px 0px 0px 10px #fdfdfd;
   position: relative;
-  width: 80vw;
+  width: 85vw;
   max-width: 600px;
+  z-index: 1000;
   box-sizing: border-box;
 }
 
@@ -47,7 +48,7 @@
 .formulario label {
   font-size: 1.3rem;
   color: #333;
-  z-index: 100;
+  z-index: 1000;
   font-weight: bolder;
   font-family: "IBM Plex Mono", monospace;
   padding: 0.7rem 0rem 0.5rem 0rem;
@@ -101,17 +102,24 @@
 
 @media (max-width: 600px) {
   .modal {
-    padding: 20px 12px;
+    padding: 20px 10px;
     border: 8px solid rgb(255, 187, 0);
     box-shadow: 0px 0px 0px 8px #fdfdfd;
     position: relative;
-    width: 80vw;
+    width: 85vw;
     max-width: 600px;
     box-sizing: border-box;
   }
 
+  .formulario label {
+    font-size: 1.2rem;
+    z-index: 1000;
+    padding: 0.5rem 0rem 0.2rem 0rem;
+  }
+
   .formulario button[type="submit"] {
     margin-top: 20px;
+    font-size: 1rem;
     padding: 0.6rem 1.5rem;
   }
 
@@ -120,5 +128,14 @@
     width: 100%;
     border-radius: 4px;
     box-sizing: border-box;
+  }
+
+  .fechar {
+    position: absolute;
+    top: -40px;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #fff;
   }
 }
