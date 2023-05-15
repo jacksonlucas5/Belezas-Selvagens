@@ -58,5 +58,5 @@ const initFuncionamento = new Funcionamento("[data-aberto='dia']");
 initFuncionamento.init();
 
 const slide = new SlideNav(".slide", ".slide-wrapper");
-slide.init(); 
+slide.init();
 slide.addControl(".custom-controls");
